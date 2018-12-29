@@ -1,5 +1,5 @@
 
-i = 1
+i = 7
 while i <= 5:
     print i
     i += 1

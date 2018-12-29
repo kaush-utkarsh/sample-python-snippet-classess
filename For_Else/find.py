@@ -7,8 +7,7 @@ def find_index(to_search, target):
     return -1
   return i
 
-
 my_list = ['Corey', 'Rick', 'John']
-index_location = find_index(my_list, 'Steve')
+index_location = find_index(my_list, 'John')
 
 print 'Location of target is index: {}'.format(index_location)

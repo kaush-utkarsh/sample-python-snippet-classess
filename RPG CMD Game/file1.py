@@ -89,3 +89,4 @@ ques = {
 # for o in ques[jump]['options']:
 # 	print(o)
 # 	print(ques[jump]['options'][o]['text'])
+# options =""ssss	
