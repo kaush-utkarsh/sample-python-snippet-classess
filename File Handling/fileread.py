@@ -1,11 +1,19 @@
-import csv
 
-#Open my file
-with open("Tasmania.txt","r") as animalFile :
-    allRowsList = csv.reader(animalFile)
+finput = open("demo.txt","r")
+data = finput.read()
+finput.close()
+print(data)
 
-    for currentRow in allRowsList :
-        print(';'.join(currentRow))
+
+
+# import csv
+
+# #Open my file
+# with open("Tasmania.txt","r") as animalFile :
+#     allRowsList = csv.reader(animalFile)
+
+#     for currentRow in allRowsList :
+#         print(';'.join(currentRow))
 
         #for currentWord in currentRow :
         #    print(currentWord)
