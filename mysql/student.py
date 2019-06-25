@@ -1,8 +1,4 @@
-
 #!/usr/bin/python3
-
-# 1. Input Student
-# 2. if group id non existent then we will ask to enter new group id between the range 1 to 5.
 
 import pymysql
 
@@ -98,6 +94,24 @@ def select_student(cur,dab):
 						col[field_names[3]] = row[3]
 						rows.append(col)
 					print(rows)
+				try:
+					user_chv = int(input("Press 1 if you wish to see the group name of this student\n")) 	
+					if user_chv is not 1:
+						print("wrong value entered")
+					else:
+						sql = """SELECT GROUP_NAME FROM Student_Group
+						WHERE GROUP_ID = '%d'""" % int(rows[0]['GROUP_ID'])
+						try:	
+							# Execute the SQL command
+							cur.execute(sql)
+							# Fetch all the rows in a list of lists.
+							results = cur.fetchall()
+							print(results[0][0])	
+						except:
+							print("unable to fetch data")		
+				except:
+					print("wrong value entered")
+
 				break
 			except:
 				continue
@@ -125,22 +139,5 @@ while(True):
 	elif user_ch is 3:
 		select_student(cursor,db)
 	else:
+		db.close()
 		exit()
-
-
-
-# # Prepare SQL query to INSERT a record into the database.
-# sql = """INSERT INTO EMPLOYEE(FIRST_NAME,
-#    LAST_NAME, AGE, SEX, INCOME)
-#    VALUES ('Mc', 'Mahon', 20, 'M', 2000)"""
-# try:
-#    # Execute the SQL command
-#    cursor.execute(sql)
-#    # Commit your changes in the database
-#    db.commit()
-# except:
-#    # Rollback in case there is any error
-#    db.rollback()
-
-# # disconnect from server
-# db.close()
